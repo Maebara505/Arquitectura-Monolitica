@@ -1,0 +1,120 @@
+/* src/components/PokemonDashboard.css */
+
+/* Contenedor principal de la vista */
+.dashboard-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilos de la barra de búsqueda */
+.buscador {
+  padding: 12px 20px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 400px;
+  border: 2px solid #ddd;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.buscador:focus {
+  border-color: #ffcb05; /* Un toque de amarillo Pokémon cuando haces clic */
+  box-shadow: 0 0 8px rgba(255, 203, 5, 0.5);
+}
+
+/* Grilla adaptable para las tarjetas */
+.pokemon-grid {
+  display: grid;
+  /* El auto-fill hace que se adapte perfecto a monitores o celulares */
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+/* Diseño de cada tarjeta Pokémon */
+.tarjeta {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  padding: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto al pasar el mouse por encima de la tarjeta */
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  border-color: #3b4cca; /* Azul Pokémon */
+}
+
+/* --- ESTILOS DE LA VENTANA MODAL --- */
+
+/* El fondo oscuro que tapa el resto de la página */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px); /* Le da un toque muy moderno */
+}
+
+/* La tarjeta blanca central del modal */
+.modal-contenido {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  position: relative;
+  text-align: center;
+  min-width: 320px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: deslizarArriba 0.3s ease-out;
+}
+
+/* El botón circular rojo para cerrar */
+.boton-cerrar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.boton-cerrar:hover {
+  background-color: #d9363e;
+  transform: scale(1.1);
+}
+
+/* Animación fluida para que el modal no aparezca tan brusco */
+@keyframes deslizarArriba {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

@@ -1,0 +1,116 @@
+/* App.css / PokemonDashboard.css */
+
+/* Contenedor principal */
+.dashboard-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Barra de búsqueda */
+.buscador {
+  padding: 12px 20px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 400px;
+  border: 2px solid #ddd;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.buscador:focus {
+  border-color: #3b4cca; /* Azul estilo Pokémon */
+}
+
+/* Grilla responsiva de tarjetas */
+.pokemon-grid {
+  display: grid;
+  /* Esto hace que se adapte a celulares o pantallas grandes automáticamente */
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+/* Tarjeta individual */
+.tarjeta {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 15px;
+  padding: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  background-color: #f1f1f1;
+}
+
+/* --- ESTILOS DEL MODAL --- */
+
+/* Fondo oscuro detrás del modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Caja blanca del modal */
+.modal-contenido {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  position: relative;
+  text-align: center;
+  min-width: 320px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: aparecer 0.3s ease-out;
+}
+
+/* Botón para cerrar la ventana (X) */
+.boton-cerrar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.boton-cerrar:hover {
+  background-color: #d9363e;
+}
+
+/* Animación sencilla para que el modal no aparezca de golpe */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
